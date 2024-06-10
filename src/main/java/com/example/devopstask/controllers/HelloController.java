@@ -24,6 +24,11 @@ public class HelloController {
         return builder.toString();
     }
 
+    @GetMapping("/bye")
+    public String sayBye() {
+        return "Bye bye, my friend";
+    }
+
     @GetMapping("/append")
     public double append(@RequestParam("a") double a, @RequestParam("b") double b) {
         return a + b;
