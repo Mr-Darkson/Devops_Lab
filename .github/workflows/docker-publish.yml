@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  docker-publish:
+  docker-public:
     permissions:
       contents: read
       packages: write
