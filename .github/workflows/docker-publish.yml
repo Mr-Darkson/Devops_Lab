@@ -1,0 +1,19 @@
+name: Docker-publish
+
+on:
+  workflow_run:
+    workflows: [ "Release" ]
+    types:
+      - completed
+
+jobs:
+  docker-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Push
+        uses: bozdoz/auto-docker-push@v3
+        with:
+         image: ${{ secrets.DOCKER_PASSWORD }}
+         username: ${{ secrets.DOCKER_USERNAME }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
