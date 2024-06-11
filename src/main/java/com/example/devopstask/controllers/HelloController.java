@@ -29,8 +29,8 @@ public class HelloController {
         return "Bye bye, my friend";
     }
 
-    @GetMapping("/append")
-    public double append(@RequestParam("a") double a, @RequestParam("b") double b) {
+    @GetMapping("/addition")
+    public double addition(@RequestParam("a") double a, @RequestParam("b") double b) {
         return a + b;
     }
     @GetMapping("/substract")
