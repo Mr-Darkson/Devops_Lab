@@ -1,13 +1,17 @@
 name: Docker-publish
 
 on:
-  workflow_run:
-    workflows: [ "Release" ]
-    types:
-      - completed
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 
 jobs:
   docker-publish:
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +20,6 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Build the Docker image
         run: docker build . -t mrdarkson/devops-lab:${{ github.sha }}
