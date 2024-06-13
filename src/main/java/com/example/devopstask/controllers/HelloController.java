@@ -12,7 +12,7 @@ public class HelloController {
         return "Hello, boy!";
     }
 
-    @GetMapping("/help")
+    @GetMapping("/helpme")
     public String getHelp() {
 
         StringBuilder builder = new StringBuilder();
