@@ -1,6 +1,6 @@
 FROM maven:latest AS build
 COPY . .
-RUN mvn -T1C -fie -DskipTests clean install
+RUN mvn -T1C -fae -DskipTests clean install
 
 FROM openjdk:latest
 COPY --from=build ./target/devops-task-1.0.jar .
