@@ -14,6 +14,7 @@ public class HelloController {
 
     @GetMapping("/help")
     public String getHelp() {
+
         StringBuilder builder = new StringBuilder();
         builder.append("Добро пожаловать!\n");
         builder.append("Возможные команды:\n");
@@ -21,6 +22,7 @@ public class HelloController {
         builder.append("/substract a='', b=''\n");
         builder.append("/divide a='', b=''\n");
         builder.append("/multiply a='', b=''\n");
+
         return builder.toString();
     }
 
@@ -30,7 +32,7 @@ public class HelloController {
     }
 
     @GetMapping("/addition")
-         public double addition(@RequestParam(   "a") double a, @RequestParam("b") double b) {
+    public double addition(@RequestParam(   "a") double a, @RequestParam("b") double b) {
         return a + b;
     }
     @GetMapping("/substract")
