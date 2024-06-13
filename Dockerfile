@@ -1,11 +1,8 @@
 FROM maven:latest AS build
-WORKDIR /app
-COPY pom.xml .
-COPY src/ src/
-RUN mvn package
+COPY . .
+RUN mvn -T1C -fie -DskipTests clean install
 
 FROM openjdk:latest
-WORKDIR /app
-COPY --from=build /app/target/devops-task-1.0.jar .
+COPY --from=build ./target/devops-task-1.0.jar .
 EXPOSE 8080
 CMD ["java", "-jar", "devops-task-1.0.jar"]
