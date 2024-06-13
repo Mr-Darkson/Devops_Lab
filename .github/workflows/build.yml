@@ -1,4 +1,4 @@
-name: Test&Lint
+name: Build
 
 on:
   push:
@@ -13,11 +13,11 @@ permissions:
 
 jobs:
   build-test:
-    name: Test&Lint
+    name: Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
         java-version: '21'
@@ -39,8 +39,5 @@ jobs:
           reporter: java-junit
           fail-on-error: true
 
-    - name: Linter
-      uses: axel-op/googlejavaformat-action@v3
-      with:
-        args: "--skip-sorting-imports --replace"
+
 
