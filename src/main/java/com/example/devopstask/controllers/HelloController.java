@@ -32,7 +32,7 @@ public class HelloController {
     }
 
     @GetMapping("/addition")
-    public double addition(@RequestParam("a") double a, @RequestParam("b") double b) {
+    public double addition(          @RequestParam("a")      double a, @RequestParam("b") double b) {
         return a + b;
     }
     @GetMapping("/substract")
