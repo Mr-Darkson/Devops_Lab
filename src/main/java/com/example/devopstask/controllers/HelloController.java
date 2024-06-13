@@ -36,7 +36,6 @@ public class HelloController {
     return a + b;
   }
 
-
   @GetMapping("/substract")
   public double substract(@RequestParam("a") double a, @RequestParam("b") double b) {
     return a - b;
