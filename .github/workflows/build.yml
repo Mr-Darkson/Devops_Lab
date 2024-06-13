@@ -42,5 +42,5 @@ jobs:
     - name: Linter
       uses: axel-op/googlejavaformat-action@v3
       with:
-        args: "--skip-sorting-imports --replace"
+        args: "--skip-sorting-imports"
 
